@@ -24,7 +24,8 @@ public class ScannerDemo {
          * Eclipse's console. This may change depending on the environment where
          * are running your program or the input/output stream you are using.
          */
-
+    	
+    	Scanner scannerOne = new Scanner(System.in);
         
         
         /*
@@ -41,7 +42,13 @@ public class ScannerDemo {
          * Note: Don't forget to save the results of next() or nextLine() into a
          * String variable.
          */
-
+    	System.out.println("what is your name?");
+    	String input1 = scannerOne.nextLine();
+    	
+    	System.out.println("what is your age?");
+    	int input2 =  scannerOne.nextInt();
+    	
+    	
         
         
         /*
@@ -61,10 +68,12 @@ public class ScannerDemo {
          * Note: There are many methods similar to the one you used for int that
          * are capable of taking in primitive data types.
          */
+    	System.out.println("what is the square root of pi?");
+    	Double pi = scannerOne.nextDouble();
 
         // 5.) Print the user's data to the console nicely formatted.
 
-        
+        System.out.println("Hello " + input1 + ". I know much about you and your " + input2 + " long escapades. You were incorrect btw, " + pi + " is not the square root of pi." );
         
         /*
          * 6.) Close your scanner to avoid memory leaks.
@@ -72,7 +81,7 @@ public class ScannerDemo {
          * Note: When using a Scanner with the System.in input stream in larger
          * programs only close the scanner when your program is completely done.
          */
-
+        scannerOne.close();
     }
 
 }
