@@ -1,5 +1,17 @@
 package _06_Console_Store;
 
+import java.util.Scanner;
+
+import _02_Generics_Store.CandyCorn;
+import _02_Generics_Store.Cart;
+import _02_Generics_Store.Cheerios;
+import _02_Generics_Store.Clothing;
+import _02_Generics_Store.Food;
+import _02_Generics_Store.FruitLoops;
+import _02_Generics_Store.GummyWorm;
+import _02_Generics_Store.NonFood;
+import _02_Generics_Store.Toy;
+
 public class ConsoleStore {
 
     /*
@@ -35,8 +47,52 @@ public class ConsoleStore {
      * print out a receipt showing their name, the individual prices of the
      * items and their total.
      */
-
+	Scanner scanner = new Scanner(System.in);
+	Cart <Food> StaterBrosCart;
+	Cart <NonFood> AmazonCart;
+	static boolean shopping = true;
+	
+	Double balanceRemaining = 30.00;
+	
     public static void main(String[] args) {
+    	
+    	Scanner scanner = new Scanner(System.in);
+    	Cart <Food> StaterBrosCart = new Cart <Food>();
+    	Cart <NonFood> AmazonCart= new Cart <NonFood>();
+    	 boolean shopping = true;
+    	
+    	Double balanceRemaining = 30.00;
+    	
+    	System.out.println("Welcome! What would you like to buy today? \n Please type what you would like from the following list. When done, write \"done\"");
+    	
+    	do {
+    		System.out.println("We have: gummy worms, candy corn, toy, clothing, cheerios and fruit loops" );
+    		
+    		switch (scanner.nextLine()) {
+    		case ("gummy worms"):
+				StaterBrosCart.add(new GummyWorm());
+    		case ("candy corn"):
+				StaterBrosCart.add(new CandyCorn());
+    		case ("cheerios"):
+				StaterBrosCart.add(new Cheerios());
+    		case ("fruit loops"):
+				StaterBrosCart.add(new FruitLoops());
+    		case ("clothing"):
+				AmazonCart.add(new Clothing());
+    		case ("toy"):
+				AmazonCart.add(new Toy());
+    		case ("done"):
+    			shopping = false;
+    		}
+    		
+    	} while (shopping);
+    	
+    	System.out.println("Thank you for shopping with us! Let us review your food cart! Type purchase after reviewing your cart!");
+    	StaterBrosCart.showCart();
+    	
+    	if (scanner.nextLine().equals("purchase")) {
+    		balanceRemaining -= cart.
+    	}
 
     }
 

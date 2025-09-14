@@ -1,26 +1,17 @@
 package _02_Generics_Store;
 
-import java.util.Random;
-
 import javax.swing.JLabel;
 
-public class Cereal extends Food{
-	public Cereal() {
-		if(new Random().nextBoolean()) {
-			this.item = "cereal1.jpeg";
-		}
-		else {
+public class FruitLoops extends Cereal{
+	public FruitLoops() {
+		
 			this.item = "cereal2.jpeg";
-		}
+	
 	}
 
 	@Override
 	public JLabel getFood() {
 		// TODO Auto-generated method stub
 		return new JLabel(loadImage(this.item));
-	}
-	
-	public Double getPrice() {
-		return 4.99;
 	}
 }

@@ -21,4 +21,8 @@ public abstract class Food {
             return null;
         }
     }
+    
+    public Double getPrice () {
+    	return 3.00;
+    }
 }

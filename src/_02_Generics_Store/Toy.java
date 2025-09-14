@@ -19,4 +19,8 @@ public class Toy extends NonFood {
 		// TODO Auto-generated method stub
 		return new JLabel(loadImage(this.item));
 	}
+	
+	public Double getPrice() {
+		return 4.05;
+	}
 }

@@ -1,17 +1,11 @@
 package _02_Generics_Store;
-
-import java.util.Random;
-
 import javax.swing.JLabel;
 
-public class Candy extends Food{
-	public Candy() {
-		if(new Random().nextBoolean()) {
+public class CandyCorn extends Cereal{
+	public CandyCorn() {
+		
 			this.item = "candy1.jpeg";
-		}
-		else {
-			this.item = "candy2.jpeg";
-		}
+	
 	}
 
 	@Override
@@ -19,8 +13,5 @@ public class Candy extends Food{
 		// TODO Auto-generated method stub
 		return new JLabel(loadImage(this.item));
 	}
-	
-	public Double getPrice() {
-		return 2.49;
-	}
 }
+
