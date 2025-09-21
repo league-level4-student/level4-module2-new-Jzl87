@@ -30,6 +30,16 @@ public class Cart<T extends Object> {
         JOptionPane.showMessageDialog(null,
                 "Your cart is full!\nNo more than 5 items");
     }
+    
+    public void remove (String name) {
+    	for (int i = 0; i < cart.length; i++) {
+    		if (cart[i] instanceof Food && ((Food) cart[i]).getItem().equals(name)) {
+    			cart[i] = null;
+    		} else if (cart[i] instanceof NonFood && ((NonFood) cart[i]).getItem().equals(name)){
+    			
+    		}
+    	}
+    }
 
     // Displays everything currently in the cart
     public void showCart() {
@@ -54,5 +64,13 @@ public class Cart<T extends Object> {
 
     public int length() {
         return cart.length;
+    }
+    
+    public double returnPrice (){
+    	double totalPrice = 0;
+    	for (Object x: cart) {
+    		//totalPrice += () x.getPrice();
+    	}
+    	return totalPrice;
     }
 }

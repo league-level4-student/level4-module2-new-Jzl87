@@ -59,12 +59,19 @@ public class ConsoleStore {
     	Scanner scanner = new Scanner(System.in);
     	Cart <Food> StaterBrosCart = new Cart <Food>();
     	Cart <NonFood> AmazonCart= new Cart <NonFood>();
-    	 boolean shopping = true;
+    	boolean shopping = true;
+    	String name;
+    	 
     	
     	Double balanceRemaining = 30.00;
     	
-    	System.out.println("Welcome! What would you like to buy today? \n Please type what you would like from the following list. When done, write \"done\"");
+    	System.out.println("Hello, shopper. What is your name?");
+    	name = scanner.nextLine();
     	
+    	System.out.println("Welcome, " + name +"! What would you like to buy today? \n Please type what you would like from the following list. When done, write \"done\"");
+    	
+    	
+    	//Adding/subtracting from cart
     	do {
     		System.out.println("We have: gummy worms, candy corn, toy, clothing, cheerios and fruit loops" );
     		
@@ -87,11 +94,17 @@ public class ConsoleStore {
     		
     	} while (shopping);
     	
-    	System.out.println("Thank you for shopping with us! Let us review your food cart! Type purchase after reviewing your cart!");
-    	StaterBrosCart.showCart();
     	
+    	
+    	//Checking out
+    	System.out.println("Thank you for shopping with us! Let us review your food cart! Type purchase after reviewing your cart!");
+    	
+    	System.out.println("Your food:");
+    	StaterBrosCart.showCart();
+    	System.out.println("Your food:");
+
     	if (scanner.nextLine().equals("purchase")) {
-    		balanceRemaining -= cart.
+    		
     	}
 
     }

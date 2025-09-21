@@ -20,4 +20,9 @@ public abstract class NonFood {
 			return null;
 		}
 	}
+	
+
+    public String getItem() {
+		return item;
+	}
 }

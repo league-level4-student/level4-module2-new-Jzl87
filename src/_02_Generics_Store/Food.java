@@ -25,4 +25,8 @@ public abstract class Food {
     public Double getPrice () {
     	return 3.00;
     }
+    
+    public String getItem() {
+		return item;
+	}
 }
