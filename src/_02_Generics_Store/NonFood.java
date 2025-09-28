@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public abstract class NonFood {
+public abstract class NonFood extends Product {
 	String item;
 	
 	public abstract JLabel getNonFood();
@@ -25,4 +25,8 @@ public abstract class NonFood {
     public String getItem() {
 		return item;
 	}
+    
+    public Double getPrice () {
+    	return 6.00;
+    }
 }

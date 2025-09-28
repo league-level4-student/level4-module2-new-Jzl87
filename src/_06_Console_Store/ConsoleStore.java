@@ -72,41 +72,60 @@ public class ConsoleStore {
     	
     	
     	//Adding/subtracting from cart
-    	do {
+    	while (shopping) {
     		System.out.println("We have: gummy worms, candy corn, toy, clothing, cheerios and fruit loops" );
     		
-    		switch (scanner.nextLine()) {
-    		case ("gummy worms"):
-				StaterBrosCart.add(new GummyWorm());
-    		case ("candy corn"):
-				StaterBrosCart.add(new CandyCorn());
-    		case ("cheerios"):
-				StaterBrosCart.add(new Cheerios());
-    		case ("fruit loops"):
-				StaterBrosCart.add(new FruitLoops());
-    		case ("clothing"):
-				AmazonCart.add(new Clothing());
-    		case ("toy"):
-				AmazonCart.add(new Toy());
-    		case ("done"):
-    			shopping = false;
-    		}
+    		String text = scanner.nextLine();
+    			if (text.equals("gummy worms")) {
+    				StaterBrosCart.add(new GummyWorm());
+    			} else if (text.equals("candy corn")) {
+    				StaterBrosCart.add(new CandyCorn());
+    			} else if (text.equals("cheerios")) {
+    				StaterBrosCart.add(new Cheerios());
+    			} else if (text.equals("fruit loops")) {
+    				StaterBrosCart.add(new FruitLoops());
+    			} else if (text.equals("clothing")) {
+    				AmazonCart.add(new Clothing());
+				} else if (text.equals("toy")) {
+    				AmazonCart.add(new Toy());
+				} else if (text.equals("done")){
+    				shopping = false;
+				} else {
+    				System.out.println("That is a typo. please try again");
+				}
     		
-    	} while (shopping);
+    	}
     	
     	
     	
     	//Checking out
     	System.out.println("Thank you for shopping with us! Let us review your food cart! Type purchase after reviewing your cart!");
     	
-    	System.out.println("Your food:");
+    	System.out.println("Please review your cart:");
     	StaterBrosCart.showCart();
-    	System.out.println("Your food:");
+    	AmazonCart.showCart();
 
-    	if (scanner.nextLine().equals("purchase")) {
-    		
+    		if (scanner.nextLine().equals("purchase")) {
+    			boolean flip = true;
+    			while (balanceRemaining - (AmazonCart.returnPrice() + StaterBrosCart.returnPrice()) < 0) {
+    			
+    				if (flip) {
+    					System.out.println("Your $"+ balanceRemaining + " is insufficient: You are $" + (-30 + (AmazonCart.returnPrice() + StaterBrosCart.returnPrice())) +" over budget. Which non food item would you like removed?");
+    					String line = scanner.nextLine();
+    					AmazonCart.remove(line);
+    				} else {
+    					System.out.println("Your $"+ balanceRemaining + " is insufficient: You are $" + (-30 +(AmazonCart.returnPrice() + StaterBrosCart.returnPrice())) +" over budget. Which"
+    							+ " food item would you like removed?");    					
+    					String line = scanner.nextLine();
+    					StaterBrosCart.remove(line);
+    				}
+    			
+    			}
+    			
+    			System.out.println("Thank you for shopping today! Your change is $" + (balanceRemaining - (AmazonCart.returnPrice() + StaterBrosCart.returnPrice())));
     	}
-
     }
 
-}
+ }
+
+

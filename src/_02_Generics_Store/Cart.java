@@ -33,10 +33,13 @@ public class Cart<T extends Object> {
     
     public void remove (String name) {
     	for (int i = 0; i < cart.length; i++) {
-    		if (cart[i] instanceof Food && ((Food) cart[i]).getItem().equals(name)) {
+    		if (cart[i] instanceof Food && ((Food) cart[i]).getItem().contains(name)) {
     			cart[i] = null;
-    		} else if (cart[i] instanceof NonFood && ((NonFood) cart[i]).getItem().equals(name)){
-    			
+    			break;
+    		} else if (cart[i] instanceof NonFood && ((NonFood) cart[i]).getItem().contains(name)){
+    			cart[i] = null;
+    			break;
+
     		}
     	}
     }
@@ -62,15 +65,22 @@ public class Cart<T extends Object> {
 
     }
 
-    public int length() {
-        return cart.length;
-    }
     
     public double returnPrice (){
     	double totalPrice = 0;
-    	for (Object x: cart) {
-    		//totalPrice += () x.getPrice();
+    	for (int x = 0; x < cart.length; x++) {
+    		if (cart[x] instanceof Cereal) {
+				totalPrice += ((Cereal) cart[x]).getPrice();
+    		} else if (cart[x] instanceof Candy) {
+    			totalPrice += ((Candy) cart[x]).getPrice();
+    		} else if (cart[x] instanceof Toy) {
+    			totalPrice +=((Toy) cart[x]).getPrice();
+    		} else if (cart[x] instanceof Clothing) {
+    			totalPrice +=((Clothing) cart[x]).getPrice();
+    		}
+    			
     	}
+   
     	return totalPrice;
     }
 }
